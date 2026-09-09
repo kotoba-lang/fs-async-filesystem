@@ -1,5 +1,5 @@
-# fs-iasync-filesystem
+# fs-async-filesystem
 
-`kotoba.fs.iasync-filesystem/IAsyncFilesystem`
+`kotoba.fs.async-filesystem/IAsyncFilesystem`
 
 One definition. Reaches nothing else in this family.

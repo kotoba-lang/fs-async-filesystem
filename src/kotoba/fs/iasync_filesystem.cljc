@@ -1,0 +1,19 @@
+(ns kotoba.fs.iasync-filesystem
+  "IAsyncFilesystem -- addressed on its own.
+
+  Split out of kotoba.lang.fs on 2026-09-09 (ADR-2609091200). The unit
+  here is the DEFINITION, and this repo's deps.edn names exactly the
+  definitions it reaches -- nothing else.
+"
+  )
+
+(defprotocol IAsyncFilesystem
+  "Host-injected, non-blocking filesystem capability. Methods return the host
+  runtime's eventual value (`CompletableFuture` on the JVM, `Promise` on
+  JavaScript). The handle retains the same required root and byte bounds as
+  `IFilesystem`; an eventual value is not ambient authority."
+  (read-async    [fs path])
+  (write-async   [fs path content])
+  (list-async    [fs path])
+  (exists-async? [fs path])
+  (delete-async  [fs path]))
